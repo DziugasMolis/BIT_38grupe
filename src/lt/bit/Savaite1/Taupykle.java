@@ -1,4 +1,4 @@
-package lt.bit;
+package lt.bit.Savaite1;
 
 import java.util.Scanner;
 
