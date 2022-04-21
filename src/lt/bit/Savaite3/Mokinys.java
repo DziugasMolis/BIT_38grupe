@@ -61,6 +61,7 @@ public class Mokinys {
                 ", pavarde='" + pavarde + '\'' +
                 ", klase='" + klase + '\'' +
                 ", pazymiai=" + Arrays.toString(pazymiai) +
+                ", vidurkis=" + pazymiuVidurkis() + '\'' +
                 '}';
     }
 
