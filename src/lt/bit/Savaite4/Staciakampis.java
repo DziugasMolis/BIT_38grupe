@@ -34,4 +34,23 @@ public class Staciakampis {
     public void setY(double y) {
         this.y = y;
     }
+
+    @Override
+    public String toString() {
+        return "Staciakampis{" +
+                "id='" + id + '\'' +
+                ", x=" + x +
+                ", y=" + y +
+                ", perimetras=" + perimetras() +
+                ", plotas=" + plotas() +
+                '}';
+    }
+
+    public double perimetras() {
+        return 2 * x + 2 * y;
+    }
+
+    public double plotas() {
+        return x * y;
+    }
 }
