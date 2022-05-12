@@ -48,8 +48,9 @@ public class Main {
                 visuSuma = visuSuma + suma;
                 bw.write(i + 1 + ". " + String.format("%.2f", suma) + " Lt.\n");
             }
+            double vienoButoMokamaSuma = visuSuma / duomenys.getButuKw().size();
             bw.write("Is viso sunaudota: uz " + String.format("%.2f", visuSuma) + " Lt.\n");
-            bw.write("Vieno kambario gyventojai mokes: " + "" + " Lt.");
+            bw.write("Vieno kambario gyventojai mokes: " + vienoButoMokamaSuma + " Lt.");
 
             bw.close();
         } catch (IOException e) {
