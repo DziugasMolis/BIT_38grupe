@@ -4,11 +4,11 @@ import java.time.LocalTime;
 
 public class Filmas implements Comparable<Filmas> {
     private String pavadinimas;
-    private int metai;
+    private Integer metai;
     private LocalTime trukme;
     private Integer ziurovuSkaiciusMln;
     
-    public Filmas(String pavadinimas, int metai, LocalTime trukme, Integer ziurovuSkaiciusMln) {
+    public Filmas(String pavadinimas, Integer metai, LocalTime trukme, Integer ziurovuSkaiciusMln) {
         this.pavadinimas = pavadinimas;
         this.metai = metai;
         this.trukme = trukme;
@@ -23,11 +23,11 @@ public class Filmas implements Comparable<Filmas> {
         this.pavadinimas = pavadinimas;
     }
 
-    public int getMetai() {
+    public Integer getMetai() {
         return metai;
     }
 
-    public void setMetai(int metai) {
+    public void setMetai(Integer metai) {
         this.metai = metai;
     }
 
@@ -64,18 +64,10 @@ public class Filmas implements Comparable<Filmas> {
     public int compareTo(Filmas o) {
         // surikiuoti pagal trukme didejancia tvarka
         int res = trukme.compareTo(o.getTrukme());
-        if(res > 0) {
-            return 1;
-        } else if(res < 0) {
-            return -1;
+        if(res != 0) {
+            return res;
         }
         // Jei lygu pagal ziurovuSkaiciusMln mazejancia tvarka
-        res = ziurovuSkaiciusMln.compareTo(o.getZiurovuSkaiciusMln());
-        if(res > 0) {
-            return -1;
-        } else if(res < 0) {
-            return 1;
-        }
-        return 0;
+        return -ziurovuSkaiciusMln.compareTo(o.getZiurovuSkaiciusMln());
     }
 }

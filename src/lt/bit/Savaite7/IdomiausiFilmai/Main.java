@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -19,6 +20,24 @@ public class Main {
         Collections.sort(filmai);
         System.out.println(filmai);
         // Atspausdinti i faila
+
+        // Surikiuoti naudojant anonimine klase
+        // Pagal pavadinima, jei lygu pagal metus, jei lygu pagal ziurovuSkaiciusMln
+        Collections.sort(filmai, new Comparator<Filmas>() {
+            @Override
+            public int compare(final Filmas o1, final Filmas o2) {
+                int res = o1.getPavadinimas().compareToIgnoreCase(o2.getPavadinimas());
+                if(res != 0) {
+                    return res;
+                }
+                res = o1.getMetai().compareTo(o2.getMetai());
+                if(res != 0) {
+                    return res;
+                }
+                return o1.getZiurovuSkaiciusMln().compareTo(o2.getZiurovuSkaiciusMln());
+            }
+        });
+        System.out.println(filmai);
     }
 
     public static List<Filmas> skaityti(String duomenuFailoKelias) {
@@ -35,7 +54,7 @@ public class Main {
                 // eilute.split(" ");
                 String[] reiksmes = eilute.split(" ");
                 // metai Integer.parseInt(reiksmes[0])
-                int metai = Integer.parseInt(reiksmes[0]);
+                Integer metai = Integer.parseInt(reiksmes[0]);
                 // filmoPavadinimas substring(5, 29).trim()
                 String filmoPavadinimas = eilute.substring(5, 29).trim();
                 // valandos = reiksmes[reiksmes.length - 3]
